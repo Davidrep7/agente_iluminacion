@@ -1,3 +1,4 @@
+from cpd import agregar_regla_cpd, eliminar_regla_cpd, mostrar_tabla_cpd
 from percepcion import Percepcion
 from agente import AgenteIluminacion
 from accion import Accion
@@ -287,10 +288,13 @@ def mostrar_menu() -> str:
     print("2. Crear nueva regla")
     print("3. Eliminar regla")
     print("4. Procesar percepción")
-    print("5. Procesar percepción usando solo CPD (probabilístico)")
-    print("6. Salir")
+    print("5. Procesar percepción CPD (probabilístico)")
+    print("6. Agregar regla probabilística (CPD)")
+    print("7. Mostrar tabla probabilística CPD")
+    print("8. Eliminar regla probabilística CPD")
+    print("9. Salir")
     print("="*60)
-    return input("Selecciona una opción (1-6): ").strip()
+    return input("Selecciona una opción (1-9): ").strip()
 
 
 def procesar_percepcion(agente: AgenteIluminacion, usar_cpd_only: bool = False) -> None:
@@ -325,8 +329,17 @@ def main() -> None:
 
         elif opcion == "5":
             procesar_percepcion(agente, usar_cpd_only=True)
-
+            
         elif opcion == "6":
+            agregar_regla_cpd()
+
+        elif opcion == "7":
+            mostrar_tabla_cpd()
+
+        elif opcion == "8":
+            eliminar_regla_cpd()
+
+        elif opcion == "9":
             print("\n¡Adios!")
             break
 
